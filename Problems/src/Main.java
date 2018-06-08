@@ -2,7 +2,9 @@
 public class Main {
 
 	public static void main(String[] args) {
-		FindDuplicates.Run();
+		// FindDuplicates.Run();
+		//ClosestPalindrome.Run();
+		SortLogs.Run();
 	}
 
 }
