@@ -6,7 +6,8 @@ public class Main {
         // ClosestPalindrome.Run();
         // SortLogs.Run();
         // Morse.Run();
-        MaximumTree.Run();
+        //MaximumTree.Run();
+        ValidNumber.run();
     }
 
 }
