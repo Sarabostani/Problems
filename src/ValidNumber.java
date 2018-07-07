@@ -1,91 +1,81 @@
-
 public class ValidNumber {
     public static void run() {
-        System.out.println(isNumber(""));
-        System.out.println(isNumber("+0"));
-        System.out.println(isNumber(".e1"));
-        System.out.println(isNumber("-1.e1"));
-        System.out.println(isNumber(". "));
-        System.out.println(isNumber("e9"));
-        System.out.println(isNumber(" 0.1 "));
-        System.out.println(isNumber("abc"));
-        System.out.println(isNumber("1 a"));
-        System.out.println(isNumber("2e10"));
-        System.out.println(isNumber("--+"));
-        System.out.println(isNumber("-"));
-        System.out.println(isNumber(" -."));
+        System.out.println(isNumber("") == false);
+        System.out.println(isNumber("+0") == true);
+        System.out.println(isNumber(".e1") == false);
+        System.out.println(isNumber("-1.e1") == true);
+        System.out.println(isNumber("-2.e-3") == true);
+        System.out.println(isNumber(". ") == false);
+        System.out.println(isNumber("e9") == false);
+        System.out.println(isNumber(" 0.1 ") == true);
+        System.out.println(isNumber("abc") == false);
+        System.out.println(isNumber("1 a") == false);
+        System.out.println(isNumber("2e10") == true);
+        System.out.println(isNumber("--+") == false);
+        System.out.println(isNumber("-") == false);
+        System.out.println(isNumber(" -.") == false);
+        System.out.println(isNumber(".2") == true);
+        System.out.println(isNumber("te1") == false);
+        System.out.println(isNumber(".-4") == false);
+        System.out.println(isNumber("+.8") == true);
+        System.out.println(isNumber("2e-") == false);
+        System.out.println(isNumber("e0") == false);
     }
 
     private static boolean isNumber(String s) {
-
-        String num = s.trim();
-
-        if (num.isEmpty() || num.contains(" ") || num.equals(".") || num.equals("e")) {
+        s = s.trim();
+        if (s.isEmpty()) {
             return false;
         }
-
-        if (isWholeNumber(num) || isFloatingPointNumber(num)) {
-            return true;
-        }
-
-        else if (num.contains("e")) {
-            return isFloatingPointNumber(num.substring(0, num.indexOf("e")))
-                    && isWholeNumber(num.substring(num.indexOf("e") + 1));
-        }
-
-        return false;
-
-    }
-
-    private static boolean isWholeNumber(String s) {
-        if (s.isEmpty() || s.contains(" ") || s.equals(".") || s.equals("e")) {
-            return false;
-        }
+        
         char[] num = s.toCharArray();
-        if (num.length == 1 && !isNumber(num[0])) {
-            return false;
-        }
+        
+        boolean dec = false, exp = false, digit = false;
+        
+        int indexOfE = -1;
+        
         for (int i = 0; i < num.length; i++) {
-            if (!isNumber(num[i])) {
-                return false;
-            }
-
-            if (i == 0 && (num[i] == '-' || num[i] == '+')) {
+            // skip the sign at the beginning
+            if ((i == 0 || i == indexOfE + 1 ) && (num[i] == '-' || num[i] == '+')){
                 continue;
             }
-        }
-        return true;
-    }
-
-    private static boolean isFloatingPointNumber(String s) {
-        if (s.isEmpty() || s.contains(" ") || s.equals(".") || s.equals("e")) {
-            return false;
-        }
-        boolean decimal = false;
-        char[] num = s.toCharArray();
-        if (num.length == 1 && !isNumber(num[0])) {
-            return false;
-        }
-        for (int i = 0; i < num.length; i++) {
-            if (i == 0 && (num[i] == '-' || num[i] == '+')) {
-                continue;
-            }
-
-            if (num[i] != '.' && !isNumber(num[i])) {
+            
+            // return false for anything but digits, e, and '.'
+            if (!Character.isDigit(num[i]) && num[i] != 'e' && num[i] != '.') {
                 return false;
             }
+            
+            if (Character.isDigit(num[i])) {
+                digit = true;
+                continue;
+            }
+            
             if (num[i] == '.') {
-                if (decimal) {
+                if (dec || exp) {
                     return false;
                 }
-                decimal = true;
+                dec = true;
+                continue;
             }
+            
+            if (num[i] == 'e') {
+                if (exp || !digit) {
+                    return false;
+                }
+                exp = true;
+                digit = false;
+                indexOfE = i;
+                continue;
+            }
+            
+            
         }
-
+        
+        if ( (dec && !digit) || (exp && !digit) || !digit) {
+            return false;
+        }
+        
         return true;
     }
 
-    private static boolean isNumber(char c) {
-        return c >= '0' && c <= '9';
-    }
 }

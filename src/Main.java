@@ -7,7 +7,8 @@ public class Main {
         // SortLogs.Run();
         // Morse.Run();
         //MaximumTree.Run();
-        ValidNumber.run();
+        //ValidNumber.run();
+        ReachingPoints.Run();
     }
 
 }
