@@ -8,7 +8,8 @@ public class Main {
         // Morse.Run();
         //MaximumTree.Run();
         //ValidNumber.run();
-        ReachingPoints.Run();
+        //ReachingPoints.Run();
+    	SubSum.run();
     }
 
 }
