@@ -9,7 +9,8 @@ public class Main {
         //MaximumTree.Run();
         //ValidNumber.run();
         //ReachingPoints.Run();
-    	SubSum.run();
+    	//SubSum.run();
+    	SplitAverage.run();
     }
 
 }
