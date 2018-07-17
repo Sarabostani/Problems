@@ -10,7 +10,9 @@ public class Main {
         //ValidNumber.run();
         //ReachingPoints.Run();
     	//SubSum.run();
-    	SplitAverage.run();
+    	//SplitAverage.run();
+    	//ArrayLoop.run();
+    	BinarySearch.run();
     }
 
 }
