@@ -1,6 +1,6 @@
 
 public class SubSum {
-	public static void run() {
+	public static void main(String[] args) {
 		System.out.println(findSum(new int[] {2, 4, 6, 10, 12}, 16));
 	}
 	
@@ -8,6 +8,7 @@ public class SubSum {
 		return recSum(array, sum, array.length - 1);
 	}
 	
+	// returns the number of possible combinations of the sum
 	private static int recSum(int[] array, int sum, int index) {
 		if (sum == 0) {
 			return 1;
