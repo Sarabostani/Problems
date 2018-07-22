@@ -10,19 +10,6 @@ public class SplitAverage {
 		return subAvg(A, 5.5, 0, 0, A.length - 1, new int[] {2});
 	}
 	
-	private static boolean avgRec(int[] A, double avg, int count, int sum, int index) {
-		if (count > 0 && (double)sum/count == avg) {
-			return true;
-		}
-		
-//		if( count > 0) System.out.println((double)sum/count);
-		if (index < 0) {
-			return false;
-		}
-		
-		return avgRec(A, avg, count, sum, index - 1) || avgRec(A, avg, count + 1, sum + A[index], index - 1);
-	}
-	
 	private static boolean subAvg(int[] A, double avg, int count, int sum, int index, int[] skip) {
 		if (count > 0 && (double)sum/count == avg) {
 			return true;

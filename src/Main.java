@@ -20,7 +20,11 @@ public class Main {
 //    	DividendDivisor.run();
 //    	Fibbonacci.run();
 //    	ItoB.run();
-    	Islands.run();
+//    	Islands.run();
+/*    	System.out.println(SmartString.reverse("reverse", true));
+    	System.out.println(SmartString.areAnagrams("apple", "le app"));
+    	System.out.println(SmartString.isPalindrome("aba"));*/
+    	LocalMinima.run();
     }
 
 }

@@ -52,7 +52,7 @@ public class Islands {
 		}
 		
 		// at this point adjacency list is created
-		// printAdjList(adjList);
+		printAdjList(adjList);
 		int count = 0;
 		for (String node : adjList.keySet()) {
 			if (visited.contains(node)) {

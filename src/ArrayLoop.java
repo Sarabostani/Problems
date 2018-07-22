@@ -8,7 +8,6 @@ public class ArrayLoop {
 	private static boolean circularArrayLoop(int[] nums) {
 		int i = 0;
 		int j = nums[0];
-		int loopTimes = 0;
 		
 		while (i != j) {
 			if ( i == j ) {
