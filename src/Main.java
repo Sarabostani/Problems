@@ -18,13 +18,15 @@ public class Main {
     	//StringToInteger.run();
 //    	ArrayRotation.run();
 //    	DividendDivisor.run();
-    	Fibbonacci.run(true);
+//    	Fibbonacci.run(true);
 //    	ItoB.run();
 //    	Islands.run();
 /*    	System.out.println(SmartString.reverse("reverse", true));
     	System.out.println(SmartString.areAnagrams("apple", "le app"));
     	System.out.println(SmartString.isPalindrome("aba"));*/
 //    	LocalMinima.run();
+//    	SimpleCalc.run();
+    	WordSearch.run();
     }
 
 }
