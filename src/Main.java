@@ -26,7 +26,8 @@ public class Main {
     	System.out.println(SmartString.isPalindrome("aba"));*/
 //    	LocalMinima.run();
 //    	SimpleCalc.run();
-    	WordSearch.run();
+    	//WordSearch.run();
+    	JumpGame.run();
     }
 
 }
