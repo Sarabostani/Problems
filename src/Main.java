@@ -27,7 +27,10 @@ public class Main {
 //    	LocalMinima.run();
 //    	SimpleCalc.run();
     	//WordSearch.run();
-    	JumpGame.run();
+    	// JumpGame.run();
+//    	MinHeightTree.run();
+//    	MergeIntervals.run();
+    	MatrixSearch.run();
     }
 
 }
