@@ -30,7 +30,9 @@ public class Main {
     	// JumpGame.run();
 //    	MinHeightTree.run();
 //    	MergeIntervals.run();
-    	MatrixSearch.run();
+//    	MatrixSearch.run();
+//    	TreeFromPrePost.run();
+    	OverlapRemoval.run();
     }
 
 }

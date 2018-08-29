@@ -12,4 +12,9 @@ public class Interval {
 		start = s;
 		end = e;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("[%d,%d]", start, end);
+	}
 }
