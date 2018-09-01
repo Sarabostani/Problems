@@ -32,7 +32,11 @@ public class Main {
 //    	MergeIntervals.run();
 //    	MatrixSearch.run();
 //    	TreeFromPrePost.run();
-    	OverlapRemoval.run();
+//    	OverlapRemoval.run();
+//    	LargestIncreasingSubseq.run();
+//    	OTTPattern.run();
+//    	WordBreak.run();
+    	
     }
 
 }
