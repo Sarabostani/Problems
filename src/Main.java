@@ -29,9 +29,10 @@ public class Main {
     	//WordSearch.run();
     	// JumpGame.run();
 //    	MinHeightTree.run();
-//    	MergeIntervals.run();
+    	MergeIntervals.run();
 //    	MatrixSearch.run();
-    	LongestPalindrome.run();
+//    	LongestPalindrome.run();
+//    	KthSmallestMatrix.run();
     }
 
 }

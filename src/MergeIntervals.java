@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class MergeIntervals {
@@ -9,7 +11,6 @@ public class MergeIntervals {
 		intervals.add(new Interval(8,10));
 		intervals.add(new Interval(15,18));
 		
-		printIntervals(intervals);
 		List<Interval> merged = merge(intervals);
 		printIntervals(merged);
 		
@@ -21,6 +22,10 @@ public class MergeIntervals {
 		List<Interval> intervals3 = new ArrayList<Interval>();
 		intervals3.add(new Interval(1,4));
 		intervals3.add(new Interval(2,3));
+		printIntervals(merge(intervals3));
+		
+		intervals3.add(new Interval(2,6));
+		intervals3.add(new Interval(2,6));
 		printIntervals(merge(intervals3));
 	}
 	
@@ -38,34 +43,40 @@ public class MergeIntervals {
 		
 		System.out.println(sb.toString());
 	}
-	private static List<Interval> merge(List<Interval> intervals) {
-		if (intervals.size() <= 1){
-	        return intervals;
-	    }
-	    
-	    List<Interval> merged = new ArrayList<Interval>();
-	    if (intervals.size() == 2) {
-	    	return mergeIntervals(intervals.get(0), intervals.get(1));
-	    }
-	    
-	    merged.addAll(merge(intervals.subList(0, intervals.size()/2)));
-	    merged.addAll(merge(intervals.subList(intervals.size()/2, intervals.size())));
-	    
-	    return merged;
-	}
 	
-	private static List<Interval> mergeIntervals(Interval a, Interval b){
-		List<Interval> merged = new ArrayList<Interval>();
-		// if there is overlap, merge based on value
-		
-		if ((a.start <= b.start && a.end >= b.start) || (b.start <= a.start && b.end >= a.start)) {
-			merged.add(new Interval(Math.min(a.start, b.start), Math.max(a.end, b.end)));
+	private static List<Interval> merge(List<Interval> intervals) {
+		if (intervals.size() <= 1) {
+			return intervals;
 		}
-    	
-    	else {
-    		merged.add(a);
-    		merged.add(b);
-    	}
+		Interval[] intervalsArray = new Interval[intervals.size()];
+		intervals.toArray(intervalsArray);
+		
+		Arrays.sort(intervalsArray, new Comparator<Interval>(){
+			@Override
+			public int compare(Interval a, Interval b) {
+				return a.start - b.start;
+			}
+		});
+		
+		List<Interval> merged = new ArrayList<Interval>();
+		Interval current = intervalsArray[0];
+		for (int i = 1; i < intervalsArray.length; i++) {
+			Interval next = intervalsArray[i];
+			
+			if (current.end >= next.start) {
+				if (current.end >= next.end)
+					current = new Interval(current.start, current.end);
+				else
+					current = new Interval(current.start, next.end);
+					
+			}
+			else {
+				merged.add(current);
+				current = next;
+			}			
+		}
+		
+		merged.add(current);
 		
 		return merged;
 	}
