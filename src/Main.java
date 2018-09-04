@@ -31,8 +31,12 @@ public class Main {
 //    	MinHeightTree.run();
 //    	MergeIntervals.run();
 //    	MatrixSearch.run();
-//    	LongestPalindrome.run();
-//    	KthSmallestMatrix.run();
+//    	TreeFromPrePost.run();
+//    	OverlapRemoval.run();
+//    	LargestIncreasingSubseq.run();
+//    	OTTPattern.run();
+//    	WordBreak.run();
+    	
     }
 
 }
